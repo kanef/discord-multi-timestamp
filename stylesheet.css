@@ -6,6 +6,14 @@ body>details {
      margin-left: 70pt;
  }
 
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+    font: inherit;
+}
+
 textarea#input, textarea#output {
     /*font-family: "Consolas", monospace;*/
     min-width: 40em;
