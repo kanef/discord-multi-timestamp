@@ -38,6 +38,7 @@ fieldset {
     display: inline;
     padding: 0 .3em;
     margin-right: .1em;
+    vertical-align: middle;
 }
 
 
