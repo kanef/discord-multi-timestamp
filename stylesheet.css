@@ -1,0 +1,76 @@
+body>div {
+    margin-left: 50pt;
+}
+
+body>details {
+     margin-left: 70pt;
+ }
+
+textarea#input, textarea#output {
+    /*font-family: "Consolas", monospace;*/
+    min-width: 40em;
+    width: auto;
+    height: 24ex;
+}
+
+fieldset {
+    border: none;
+}
+
+.stepNumber {
+    font-size: 200%;
+    background-color: lightgray;
+    color: white;
+    border-radius: 2em;
+    display: inline;
+    padding: 0 .3em;
+    margin-right: .1em;
+}
+
+
+.stepNumber.ready {
+    background-color: navy;
+    color: yellow;
+}
+
+.stepNumber.error {
+    background-color: red;
+}
+
+.stepNumber.success {
+    background-color: lime;
+}
+
+
+.stepNumber.error {
+    background-color: red;
+}
+
+.stepNumber.success {
+    background-color: lime;
+}
+
+.success.result {
+    color: green;
+}
+
+
+.success.result::before {
+    content: "✅  ";
+}
+
+.error.result {
+    color: darkred;
+}
+
+.error.result::before {
+    content: "❌  ";
+}
+
+h2 {
+    vertical-align: middle;
+}
+
+input#dateField {
+    width: 60em;
+}
