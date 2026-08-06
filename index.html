@@ -18,44 +18,40 @@
 <h1>Bulk timetable converter</h1>
 <details>
     <summary>This is a simple tool to help quickly publish a schedule on Discord in the viewer's own timezone</summary>
-    <p>Discord supports a markup syntax like <code>&lt;t:1785619373:F&gt;</code> that
+    <p>Discord  <a target="reference" href="https://docs.discord.com/developers/reference#message-formatting-timestamp-styles">supports</a> a markup syntax like <code>&lt;t:1785619373:F&gt;</code> that
         makes it possible to post the date and time of an event that has attendees in multiple timezones
-        (and ways of writing down times and dates, like month/day/year in the U.S. vs day/month/year in the U.K.
-        and day.month.year in some other countries) so that no one needs to convert on their own
-        or get confused about whether 8/1 means August 1 or January 8. Great for Zoom sessions with farflung attendees!
+        (and many ways of writing down times and dates) so that no one needs do timezone math in their head,
+        keep track of which other parts of the world switch to
+        on <a target="reference" href="https://www.timeanddate.com/time/dst/about.html">Daylight Saving Time</a> when,
+        or get confused about whether 8/1 means August 1 (US) or January 8 (UK).
+        Great for Zoom sessions with farflung attendees!
+    <p>
         There are several tools such as
         <a target="reference"  href="http://hammertime.cyou/">HammerTime</a> and
         <a target="reference" href="https://discordtimestamp.org/">DiscordTimestamp</a>
         for converting a single date and time into the right markup for displaying a date and/or time or a countdown.
         (The FAQs on those sites may answer some of the questions you may have.)
-    </p>
-    <p>
-        The number is "just" the number of seconds since the number of non-leap seconds
-        that have elapsed since 00:00:00 UTC on 1 January 1970, aka "Unix time".
-        Obviously you can't do that conversion in your head, but so you need a tool to do it,
-        and there are several.
-    </p>
     <p>But what if you have an all-day event and want to announce not just the start time but a whole a schedule?
         It's tedious to convert the times one at a time. So this tool will bulk-convert a whole day's times for you.
        (For a three-day event, of course, just use it three times.)</p>
 </details>
 <details>
-    <summary>This tool's <i>inputs</i> are not internationalized, but don't worry, Discord is.</summary>
+    <summary>This tool's <i>inputs</i> are not internationalized, but don't worry, Discord's <i>output</i> is.</summary>
     <ul>
-        <li>You'll be inputting the times in a single timezone, of course, as with other such tools, whichever timezone you specify.
-            But the output displayed on Discord will be in different timezones for different attendees.
+        <li>You'll be inputting the times in a single timezone. You can change it in the pulldown menu.
+            The default is your browser's local timezone (unless the URL specifies <code>?defaultTZ=</code>).
+            But the computer-readable output is generic, and Discord will be in different timezones for different attendees.
         </li>
         <li>
             Similarly, this tool uses English month names for input and preview purposes, but Discord will display the pasted output in the Discord user's language.
         </li>
         <li>
-            For simplicity for U.S. users, this tool accepts 12-hour format
+            For simplicity for users in countries like the U.S. that use 12-hour times,
+            this tool accepts 12-hour format
             with or without an explicit <code>am</code> and <code>pm</code>
             and tries to disambiguate. It also accepts 24-hour time.
         </li>
     </ul>
-    All of this is just the way you get the correct information input. The output will be identical
-    and Discord will display it for the proper locale.
 </details>
 <h2><div class="stepNumber" id="step1">1</div>Enter date of event:</h2>
 <div>Type, paste, or use helper buttons:
@@ -70,20 +66,6 @@
 <div><input id="dateField" onblur="setDate(getDate())"/></div>
 <div id="date-result"></div>
 
-
-
-<div style="margin:2ex">
-    <details>
-        <summary>Paste your schedule into the text box below, copy the output and paste that into Discord. <i>Details...</i></summary>
-        <ol>
-            <li>Optionally, press Example to fill in an example.</li>
-            <li>Paste your schedule into the text box below.
-            <li>If it guessed wrong about whether your 12-hour times are a.m. or p.m., specify.</li>
-            <li>Press th Copy button.</li>
-            <li>Start a post in Discord and paste. Discord should show you how it will look for attendees in your locate (timezone, language, format)</li>
-            <li>For multi-day events, repeat the process and add to the post (or do several posts)</li>
-        </ol>
-</div>
 <h2><div class="stepNumber" id="step2">2</div>Copy the times from somewhere and <button onclick="pasteInput()">Paste</button> it below</h2>
 <div>
     or look at an <button onclick="setSchedule(example)">Example</button> and then <button onclick="setSchedule('')">Clear</button>
